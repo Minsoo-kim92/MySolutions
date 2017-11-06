@@ -1,0 +1,17 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class KaKao {
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		 BufferedReader br = new BufferedReader(new FileReader("kakao.txt"));
+	        while(true) {
+	            String line = br.readLine();
+	            
+	            if (line==null) break;
+	            System.out.println(new String(line.getBytes(), "ksc5601"));
+	        }
+	        br.close();
+	}
+}

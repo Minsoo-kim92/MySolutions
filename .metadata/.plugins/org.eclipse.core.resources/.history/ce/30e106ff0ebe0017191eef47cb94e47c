@@ -1,0 +1,67 @@
+package seatAllocation;
+
+import java.util.Arrays;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stb
+
+	}
+
+}
+
+
+class MySeat{
+	int[] first;
+	int[] second;
+	int[] third;
+	public MySeat() {
+		first = new int[3];
+		Arrays.fill(first, 0);
+		second = new int[4];
+		Arrays.fill(second, 0);
+		third = new int[3];
+		Arrays.fill(third, 0);
+	}
+	
+	public int findSeat() {
+		int count=0;
+		int seatable=0;
+		for(int i=0; i< first.length; i++) {
+			if(first[i] == 0) count ++;
+		}
+		if(count==3) {
+			seatable++;
+		}
+		count = 0;
+		for(int i=0; i< second.length; i++) {
+			if(second[i] == 0) count ++;
+			else count =0;
+		}
+		if(count>=3) {
+			seatable++;
+		}
+		count =0;
+		
+		for(int i=0; i< third.length; i++) {
+			if(third[i] == 0) count ++;
+			else count =0;
+		}
+		if(count>=3) {
+			seatable++;
+		}
+		
+		return seatable;
+	}
+	public void setSeat(char c) {
+		int index;
+		if(c>=74) {
+			index = c-66;
+		}else c - 65;
+	}
+	
+	
+}
+
+

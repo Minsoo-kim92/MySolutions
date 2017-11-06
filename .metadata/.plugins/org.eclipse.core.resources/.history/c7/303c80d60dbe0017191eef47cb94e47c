@@ -1,0 +1,29 @@
+package seatAllocation;
+
+import java.util.Arrays;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stb
+
+	}
+
+}
+
+
+class MySeat{
+	int[] first;
+	int[] second;
+	int[] third;
+	public MySeat() {
+		first = new int[3];
+		Arrays.fill(first, 0);
+		second = new int[4];
+		Arrays.fill(second, 0);
+		third = new int[3];
+		Arrays.fill(thrid, 0);
+	}
+}
+
+

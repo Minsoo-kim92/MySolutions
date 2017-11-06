@@ -1,0 +1,95 @@
+package seatAllocation;
+
+import java.util.Arrays;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stb
+		
+		String s ="1A 2F 1C";
+		String[] splitMsg = s.split(" ");
+		MySeatManager msm = new MySeatManager(2);
+		for(int i=0; i<splitMsg.length;i++) {
+			msm.resevation(splitMsg[i]);
+		}
+		msm.printAll();
+		
+	}
+
+}
+
+
+class MySeat{
+	int[] seat;
+	public MySeat() {
+		seat = new int[10];
+	}
+	
+	public int findSeat() {
+		int count=0;
+		int seatable=0;
+		for(int i=0; i< 3; i++) {
+			if(seat[i] == 0) count ++;
+		}
+		if(count==3) {
+			seatable++;
+		}
+		count = 0;
+		for(int i=3; i< 7; i++) {
+			if(seat[i] == 0) count ++;
+			else count =0;
+		}
+		if(count>=3) {
+			seatable++;
+		}
+		count =0;
+		
+		for(int i=7; i< 10; i++) {
+			if(seat[i] == 0) count ++;
+			else count =0;
+		}
+		if(count>=3) {
+			seatable++;
+		}
+		
+		return seatable;
+	}
+	public int setSeat(char c) {
+		int index;
+		if(c>=74) {
+			index = c-66;
+		}else index = c - 65;
+		
+		if(seat[index] == 1) {
+			return 0;
+		}else {
+			seat[index] = 1;
+			return 1;
+		}
+	}
+	public void print() {
+		for(int i=0;i<10; i++) {
+			System.out.printf("%d",seat[i]); 
+		}
+	}
+}
+
+class MySeatManager{
+	MySeat[] ms;
+	public MySeatManager(int n){
+		ms = new MySeat[n];
+	}
+	
+	public void resevation(String s) {
+		String a = s.charAt(0);
+		ms[s.charAt(0)].setSeat(s.charAt(1));
+	}
+	
+	public void printAll() {
+		for(int i=0; i<ms.length; i++) {
+			ms[i].print();
+			System.out.println("");
+		}
+	}
+}

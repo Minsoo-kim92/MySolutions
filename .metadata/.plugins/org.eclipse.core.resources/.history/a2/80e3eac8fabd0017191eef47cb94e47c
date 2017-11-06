@@ -1,0 +1,53 @@
+package renaming;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class Solution {
+	public static void main(String[] args) {
+	}
+}
+
+
+class MyPhoto {
+	String name;
+	String city;
+	String extension;
+	Date time;
+	String changedName;
+	public MyPhoto(String _name, String _city,String _extension, String _time){
+		name = _name;
+		city = _city;
+		extension = _extension;
+		try {
+			time = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).parse(_time);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void Renaming(String number) {
+		changedName = city+number.toString()+"."+extension;
+	}
+	public String getChangedName() {
+		if(changedName!=null)
+			return changedName;
+		return null;
+	}
+}
+
+/*SimpleDateFormat f = new SimpleDateFormat("HH:mm:ss", Locale.KOREA);
+
+long duration=0;
+int num;
+for(int i=0; i< length; i++) {
+	String[] logAndNum = sprString[i].split(",");
+
+	try {
+	      Date d1 = f.parse("00:00:00");
+	      Date d2 = f.parse(logAndNum[0]);
+	      long diff = d1.getTime() - d2.getTime();
+	      long sec = -1*diff / 1000;
+		duration = sec;*/
